@@ -20,53 +20,64 @@ const slides = [
 
 let numberSlide = 0;
 
+// GESTION ELEMENTS
 
-// GESTION ARROW
+const dots = document.querySelectorAll(".dots i ");
+
 const clickArrowLeft = document.querySelector(".arrow_left");
 
 const clickArrowRight = document.querySelector(".arrow_right");
 
-
-clickArrowLeft.addEventListener("click", () => {
-	changeSlideLeft(numberSlide);
-});
-
-clickArrowRight.addEventListener("click", () => {
-	changeSlideRight(numberSlide);
-});
-
 const imgSlide = document.querySelector(".banner-img");
 
-const txtSlide =document.querySelector ("#banner p");
+const txtSlide = document.querySelector("#banner p");
 
+// CLIC FLECHE GAUCHE
+clickArrowLeft.addEventListener("click", () => {
+  changeSlideLeft();
+});
+
+// CLIC FLECHE DROITE
+clickArrowRight.addEventListener("click", () => {
+  changeSlideRight();
+});
+
+// cHANGEMENT DOTS
+function changeDots() {
+  dots.forEach((dot) => dot.classList.remove("dot_selected"));
+  dots[numberSlide].classList.add("dot_selected");
+}
 
 // Changement slide DROITE
 
-function changeSlideRight (numberSlide) {
-	numberSlide++
-	/**div.dots.remove ("dot_selected");
-	div.dots[numberSlide].add ("dot_selected");*/
-	imgSlide.src = "./assets/images/slideshow/" + slides[numberSlide].image
-	txtSlide.innerHTML = slides[numberSlide].tagLine
+function changeSlideRight() {
+  numberSlide++;
+  if (numberSlide === slides.length) {
+    numberSlide = 0;
+  }
+  changeDots();
+  imgSlide.src = "./assets/images/slideshow/" + slides[numberSlide].image;
+  txtSlide.innerHTML = slides[numberSlide].tagLine;
+}
+
+// Changement slide GAUCHE
+
+function changeSlideLeft() {
+  numberSlide--;
+  if (numberSlide < 0) {
+    numberSlide = slides.length - 1;
+  }
+  changeDots();
+  imgSlide.src = "./assets/images/slideshow/" + slides[numberSlide].image;
+  txtSlide.innerHTML = slides[numberSlide].tagLine;
+}
+
+// Mise à jour slide
+
+/*function updateSlide() {
+	changeDots();
+	imgSlide.src = "./assets/images/slideshow/" + slides[numberSlide].image;
+	txtSlide.innerHTML = slides[numberSlide].tagLine;
 	console.log(numberSlide)
-	};
 
-function changeSlideLeft (numberSlide) {
-	numberSlide-1
-	/**div.dots.remove ("dot_selected");
-	div.dots[numberSlide].add ("dot_selected");*/
-	imgSlide.src = "./assets/images/slideshow/" + slides[numberSlide].image
-	txtSlide.innerHTML = slides[numberSlide].tagLine
-	console.log(numberSlide)
-	};
-
-
-
-
- // BOUCLE INFINI
-
-	/*if numberSlide = slides.length
-		numberSlide = 0
-
-	if numberSlide = -1
-		numberSlide = slides.lenght-1 */
+}*/

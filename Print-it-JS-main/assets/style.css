@@ -140,12 +140,13 @@ header {
 }
 .dot {
 	margin-inline: 5px;
-	width: 13px;
-	height: 13px;
+	/*width: 13px; Enlever pour meilleur rendu */
+	/*height: 13px; Enlever pour meilleur rendu */
 	background-color: #ffffff00;
-	border: 3px solid #fff;
+	/*border: 3px solid #fff; Enlever pour meilleur rendu */
 	border-radius: 100%;
-	box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);;
+	box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+	color: #fff; /* Ajout pour respect DA */
 }
 .dot_selected {
 	background-color: #fff;
