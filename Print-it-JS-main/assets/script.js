@@ -55,10 +55,9 @@ function changeSlideRight() {
   if (numberSlide === slides.length) {
     numberSlide = 0;
   }
-  changeDots();
-  imgSlide.src = "./assets/images/slideshow/" + slides[numberSlide].image;
-  txtSlide.innerHTML = slides[numberSlide].tagLine;
+  updateSlide();
 }
+
 
 // Changement slide GAUCHE
 
@@ -67,17 +66,13 @@ function changeSlideLeft() {
   if (numberSlide < 0) {
     numberSlide = slides.length - 1;
   }
-  changeDots();
-  imgSlide.src = "./assets/images/slideshow/" + slides[numberSlide].image;
-  txtSlide.innerHTML = slides[numberSlide].tagLine;
+  updateSlide();
 }
 
 // Mise à jour slide
 
-/*function updateSlide() {
+function updateSlide() {
 	changeDots();
 	imgSlide.src = "./assets/images/slideshow/" + slides[numberSlide].image;
 	txtSlide.innerHTML = slides[numberSlide].tagLine;
-	console.log(numberSlide)
-
-}*/
+}
